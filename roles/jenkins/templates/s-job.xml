@@ -1,22 +1,31 @@
 <?xml version='1.1' encoding='UTF-8'?>
-<flow-definition plugin="workflow-job@1268.v6eb_e2ee1a_85a">
+<flow-definition plugin="workflow-job">
+    <actions>
+        <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobAction plugin="pipeline-model-definition"/>
+        <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction plugin="pipeline-model-definition">
+            <jobProperties/>
+            <triggers/>
+            <parameters/>
+            <options/>
+        </org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction>
+    </actions>
     <description></description>
     <keepDependencies>false</keepDependencies>
     <properties/>
-    <definition class="org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition" pl                                                                                        ugin="workflow-cps@3618.v13db_a_21f0fcf">
+    <definition class="org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition" plugin="workflow-cps">
         <scm class="hudson.plugins.git.GitSCM" plugin="git">
             <configVersion>2</configVersion>
             <userRemoteConfigs>
                 <hudson.plugins.git.UserRemoteConfig>
-                    <url>https://github.com/prasannauma/{{item name}}</url>
+                    <url>https://github.com/prasannauma/{{item.name}}</url>
                 </hudson.plugins.git.UserRemoteConfig>
             </userRemoteConfigs>
             <branches>
                 <hudson.plugins.git.BranchSpec>
-                    <name>*/master</name>
+                    <name>*/main</name>
                 </hudson.plugins.git.BranchSpec>
             </branches>
-            <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfiguration                                                                                        s>
+            <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
             <submoduleCfg class="empty-list"/>
             <extensions/>
         </scm>
